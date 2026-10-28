@@ -1,0 +1,6 @@
+{
+  "name": "InterviewReady - English Interview Coach",
+  "description": "Prepare for job interviews with instant AI feedback on English grammar, vocabulary, speech fluency metrics, interactive sentence builders, and mock interviews.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

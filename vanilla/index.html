@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InterviewReady - Vanilla HTML/JS Coach</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="progress-track"><div id="progress-bar" class="progress-fill"></div></div>
+  <header>
+    <a href="#" class="brand">InterviewReady</a>
+    <div>English Communication Coach</div>
+  </header>
+
+  <main class="container">
+    <section class="card" id="login-card">
+      <h2>Student Login</h2>
+      <p>Log in with demo student credentials (<code>student@interviewready.com</code> / <code>password123</code>) or quick demo buttons:</p>
+      <br>
+      <div style="display:flex; gap:0.5rem; margin-bottom:1rem;">
+        <button id="btn-demo-student" class="btn" style="background:#475569; font-size:0.8rem; padding:0.4rem 0.8rem;">Demo Student (Alex)</button>
+        <button id="btn-demo-analyst" class="btn" style="background:#475569; font-size:0.8rem; padding:0.4rem 0.8rem;">Demo Analyst (Priya)</button>
+      </div>
+      <input type="email" id="login-email" placeholder="Email" style="width:100%; padding:0.5rem; margin-bottom:0.5rem; border-radius:0.4rem; border:1px solid #cbd5e1;">
+      <input type="password" id="login-password" placeholder="Password" style="width:100%; padding:0.5rem; margin-bottom:0.5rem; border-radius:0.4rem; border:1px solid #cbd5e1;">
+      <button id="btn-login" class="btn">Sign In</button>
+      <div id="login-status" style="margin-top:0.5rem; font-size:0.85rem;"></div>
+    </section>
+
+    <section class="card">
+      <h1>Self-Introduction Practice</h1>
+      <p>Write your 4–5 sentence introduction and click "Get Feedback":</p>
+      <br>
+      <textarea id="intro-textarea" rows="5" style="width:100%; padding:0.75rem; border-radius:0.5rem; border:1px solid #cbd5e1;" placeholder="I am a software engineer with 2 years of experience..."></textarea>
+      <br><br>
+      <button id="btn-get-feedback" class="btn">Get Feedback</button>
+      <div id="intro-feedback-result"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
