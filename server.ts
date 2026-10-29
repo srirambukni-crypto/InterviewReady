@@ -17,6 +17,9 @@ async function startServer() {
   const PORT = Number(process.env.PORT) || 3000;
   const isProduction = process.env.NODE_ENV === 'production';
 
+  // Trust proxy for reverse proxy environments (Cloud Run / AI Studio)
+  app.set('trust proxy', 1);
+
   // Security and CORS
   app.use(cors({
     origin: '*',

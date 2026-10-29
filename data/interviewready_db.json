@@ -151,23 +151,58 @@
         ]
       },
       "createdAt": "2026-10-28T14:09:06.304Z"
+    },
+    {
+      "id": "6005bf73-d0eb-47dd-a722-d76e421db26d",
+      "userId": "default-user",
+      "type": "question",
+      "question": "What is your greatest strength?",
+      "answer": "I am very good at resolving tricky debugging issues and working in a team.",
+      "feedback": {
+        "correctedAnswer": "I am very good at resolving tricky debugging issues and working in a team.",
+        "grammarIssues": [],
+        "vocabularySuggestions": [
+          {
+            "originalWordOrPhrase": "good",
+            "betterAlternative": "exemplary / effective",
+            "reason": "\"Good\" is too generic; specify positive impact."
+          }
+        ],
+        "improvedAnswer": "In approaching this challenge, I first assessed the core requirements and gathered relevant stakeholder insights. By systematically executing the solution and monitoring key performance indicators, I ensured our deliverable was completed smoothly, reinforcing both quality and team agility.",
+        "score": 7,
+        "tips": [
+          "Structure your answer using the STAR technique (Situation, Task, Action, Result) to provide tangible context.",
+          "Maintain a steady speaking rhythm between 130-150 words per minute to sound poised and authoritative.",
+          "Expand your response by providing a specific real-world example to substantiate your claim."
+        ]
+      },
+      "createdAt": "2026-10-29T12:10:10.237Z"
     }
   ],
   "progress": {
     "default-user": {
       "userId": "default-user",
       "completedModules": [
-        "mock"
+        "mock",
+        "question"
       ],
-      "totalPracticedAnswers": 1,
-      "averageScore": 5,
+      "totalPracticedAnswers": 2,
+      "averageScore": 6,
       "streakDays": 1,
-      "lastPracticedAt": "2026-10-28T14:09:37.285Z",
+      "lastPracticedAt": "2026-10-29T12:10:10.238Z",
       "moduleScores": {
         "introduction": 5,
-        "mock": 7
+        "mock": 7,
+        "question": 7
       },
       "recentActivity": [
+        {
+          "id": "49bf5da3-60a6-447f-8072-c76eae38c113",
+          "type": "question",
+          "title": "What is your greatest strength?",
+          "score": 7,
+          "timestamp": "2026-10-29T12:10:10.238Z"
+        },
         {
           "id": "d66ebe7f-f0ee-4350-a8ae-201d4eae6d32",
           "type": "introduction",
