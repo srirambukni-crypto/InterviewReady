@@ -28,7 +28,20 @@ async function startServer() {
   }));
 
   app.use(express.json({ limit: '10mb' }));
+  app.use(express.text({ type: ['text/*', 'application/json', 'text/json'], limit: '10mb' }));
   app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+
+  // Auto-parse stringified JSON bodies if sent as raw text
+  app.use((req, res, next) => {
+    if (typeof req.body === 'string' && req.body.trim().startsWith('{')) {
+      try {
+        req.body = JSON.parse(req.body);
+      } catch {
+        // keep as is
+      }
+    }
+    next();
+  });
 
   // General rate limiter on API endpoints
   app.use('/api', apiLimiter);

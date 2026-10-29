@@ -6,7 +6,14 @@ import { getSentences } from '../controllers/sentencesController.ts';
 import { startMockInterview, submitMockAnswer } from '../controllers/mockInterviewController.ts';
 import { handleSpeechMetrics } from '../controllers/speechMetricsController.ts';
 import { getProgress, saveProgress } from '../controllers/progressController.ts';
-import { handleLogin, handleRegister, handleGetMe, handleDemoLogin } from '../controllers/authController.ts';
+import { 
+  handleLogin, 
+  handleRegister, 
+  handleGetMe, 
+  handleDemoLogin,
+  handleJsonAuth,
+  handleAuthSchema
+} from '../controllers/authController.ts';
 import { getDatabaseExportForSheets } from '../controllers/sheetsController.ts';
 import { sanitizeInput, validateFeedbackInput } from '../middleware/validator.ts';
 import { feedbackLimiter } from '../middleware/rateLimiter.ts';
@@ -16,9 +23,11 @@ export const apiRouter = Router();
 // Apply sanitization to all incoming body requests
 apiRouter.use(sanitizeInput);
 
-// 0. Authentication endpoints
+// 0. Authentication endpoints (Standard + Universal JSON)
 apiRouter.post('/auth/login', handleLogin);
 apiRouter.post('/auth/register', handleRegister);
+apiRouter.post('/auth/json', handleJsonAuth);
+apiRouter.get('/auth/schema', handleAuthSchema);
 apiRouter.get('/auth/me', handleGetMe);
 apiRouter.post('/auth/demo', handleDemoLogin);
 

@@ -15,17 +15,34 @@
 
   <main class="container">
     <section class="card" id="login-card">
-      <h2>Student Login</h2>
-      <p>Log in with demo student credentials (<code>student@interviewready.com</code> / <code>password123</code>) or quick demo buttons:</p>
+      <h2>Student Login (Form &amp; Direct JSON)</h2>
+      <p>Log in with form credentials, demo shortcuts, or direct JSON payload:</p>
       <br>
-      <div style="display:flex; gap:0.5rem; margin-bottom:1rem;">
+      <div style="display:flex; gap:0.5rem; margin-bottom:1rem; flex-wrap:wrap;">
         <button id="btn-demo-student" class="btn" style="background:#475569; font-size:0.8rem; padding:0.4rem 0.8rem;">Demo Student (Alex)</button>
         <button id="btn-demo-analyst" class="btn" style="background:#475569; font-size:0.8rem; padding:0.4rem 0.8rem;">Demo Analyst (Priya)</button>
+        <button id="btn-toggle-json-mode" class="btn" style="background:#2563eb; font-size:0.8rem; padding:0.4rem 0.8rem;">Toggle JSON Mode</button>
       </div>
-      <input type="email" id="login-email" placeholder="Email" style="width:100%; padding:0.5rem; margin-bottom:0.5rem; border-radius:0.4rem; border:1px solid #cbd5e1;">
-      <input type="password" id="login-password" placeholder="Password" style="width:100%; padding:0.5rem; margin-bottom:0.5rem; border-radius:0.4rem; border:1px solid #cbd5e1;">
-      <button id="btn-login" class="btn">Sign In</button>
-      <div id="login-status" style="margin-top:0.5rem; font-size:0.85rem;"></div>
+
+      <div id="standard-login-fields">
+        <input type="email" id="login-email" placeholder="Email (student@interviewready.com)" style="width:100%; padding:0.5rem; margin-bottom:0.5rem; border-radius:0.4rem; border:1px solid #cbd5e1;">
+        <input type="password" id="login-password" placeholder="Password (password123)" style="width:100%; padding:0.5rem; margin-bottom:0.5rem; border-radius:0.4rem; border:1px solid #cbd5e1;">
+        <button id="btn-login" class="btn">Sign In</button>
+      </div>
+
+      <div id="json-login-fields" style="display:none; margin-top:0.75rem;">
+        <div style="font-size:0.85rem; font-weight:600; color:#334155; margin-bottom:0.4rem;">Paste JSON Credentials:</div>
+        <textarea id="json-textarea" rows="5" style="width:100%; font-family:monospace; font-size:0.85rem; padding:0.5rem; border-radius:0.4rem; border:1px solid #cbd5e1; background:#0f172a; color:#34d399;" spellcheck="false">{
+  "email": "student@interviewready.com",
+  "password": "password123"
+}</textarea>
+        <div style="margin-top:0.5rem; display:flex; gap:0.5rem;">
+          <button id="btn-submit-json" class="btn" style="background:#16a34a;">Submit JSON Login</button>
+          <button id="btn-template-register" class="btn" style="background:#64748b; font-size:0.8rem;">Load Register JSON</button>
+        </div>
+      </div>
+
+      <div id="login-status" style="margin-top:0.75rem; font-size:0.85rem;"></div>
     </section>
 
     <section class="card">

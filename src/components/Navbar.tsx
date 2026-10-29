@@ -18,7 +18,8 @@ import {
   ChevronDown,
   Sparkles,
   LogIn,
-  FileSpreadsheet
+  FileSpreadsheet,
+  Code2
 } from 'lucide-react';
 import { stopSpeech } from '../utils/speechUtils.ts';
 import { User } from '../backend/models/types.ts';
@@ -34,6 +35,7 @@ interface NavbarProps {
   currentUser: User | null;
   onLogout: () => void;
   onOpenLogin: () => void;
+  onOpenJsonLogin?: () => void;
   onSwitchDemo: (demoType: 'student' | 'analyst' | 'guest') => void;
   onOpenSheets: () => void;
 }
@@ -47,6 +49,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   currentUser,
   onLogout,
   onOpenLogin,
+  onOpenJsonLogin,
   onSwitchDemo,
   onOpenSheets
 }) => {
@@ -259,8 +262,24 @@ export const Navbar: React.FC<NavbarProps> = ({
                       </button>
                     </div>
 
+                    {/* JSON Mode shortcut in dropdown */}
+                    <div className="border-t border-slate-100 pt-1.5 pb-1">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          if (onOpenJsonLogin) onOpenJsonLogin();
+                          else onOpenLogin();
+                          setUserDropdownOpen(false);
+                        }}
+                        className="w-full text-left px-2 py-1.5 rounded-lg text-xs hover:bg-blue-50 text-blue-700 font-semibold flex items-center gap-2 cursor-pointer"
+                      >
+                        <Code2 className="w-3.5 h-3.5 text-blue-600" />
+                        <span>JSON Credentials Mode</span>
+                      </button>
+                    </div>
+
                     {/* Sign out */}
-                    <div className="border-t border-slate-100 pt-2">
+                    <div className="border-t border-slate-100 pt-1">
                       <button
                         onClick={() => { onLogout(); setUserDropdownOpen(false); }}
                         className="w-full text-left text-xs font-semibold text-rose-600 hover:text-rose-700 flex items-center gap-2 py-1 cursor-pointer"
@@ -273,14 +292,25 @@ export const Navbar: React.FC<NavbarProps> = ({
                 )}
               </div>
             ) : (
-              <button
-                type="button"
-                onClick={onOpenLogin}
-                className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs transition-all shadow-xs cursor-pointer hover:scale-[1.02]"
-              >
-                <LogIn className="w-3.5 h-3.5" />
-                <span>Log In / Sign Up</span>
-              </button>
+              <div className="flex items-center gap-1.5">
+                <button
+                  type="button"
+                  onClick={onOpenLogin}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs transition-all shadow-xs cursor-pointer hover:scale-[1.02]"
+                >
+                  <LogIn className="w-3.5 h-3.5" />
+                  <span>Log In</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={onOpenJsonLogin || onOpenLogin}
+                  className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl border border-blue-200 bg-blue-50 hover:bg-blue-100 text-blue-700 font-mono font-bold text-xs transition-all cursor-pointer shadow-2xs hover:scale-[1.02]"
+                  title="JSON-friendly Login: Paste or import candidate JSON details"
+                >
+                  <Code2 className="w-3 h-3 text-blue-600" />
+                  <span>{`{ } JSON`}</span>
+                </button>
+              </div>
             )}
           </div>
 

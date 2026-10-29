@@ -34,6 +34,7 @@ const INITIAL_PROGRESS: UserProgress = {
 export default function App() {
   const [currentTab, setCurrentTab] = useState<NavTab>('home');
   const [previousTab, setPreviousTab] = useState<NavTab>('home');
+  const [loginInitialMode, setLoginInitialMode] = useState<'login' | 'register' | 'json'>('login');
 
   const [currentUser, setCurrentUser] = useState<User>(() => {
     try {
@@ -58,6 +59,34 @@ export default function App() {
     setNotification(msg);
     setTimeout(() => setNotification(null), 3500);
   };
+
+  // URL-based JSON authentication for programmatic & deep-link logins
+  useEffect(() => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const authJsonParam = params.get('authJson') || params.get('json') || params.get('loginJson');
+      if (authJsonParam) {
+        const decoded = decodeURIComponent(authJsonParam);
+        fetch('/api/auth/json', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: decoded
+        })
+          .then(r => r.json())
+          .then(data => {
+            if (data.user && data.progress) {
+              handleAuthSuccess(data.user, data.progress);
+              showNotification(`Signed in via URL JSON as ${data.user.name}`);
+              // Clean up query param without refreshing
+              window.history.replaceState({}, document.title, window.location.pathname);
+            }
+          })
+          .catch(err => console.warn('URL JSON auth failed:', err));
+      }
+    } catch (e) {
+      console.warn('URL search params parse error:', e);
+    }
+  }, []);
 
   // Sync user and progress with backend whenever currentUser changes
   useEffect(() => {
@@ -192,7 +221,14 @@ export default function App() {
         streakDays={progress.streakDays || 1}
         currentUser={currentUser}
         onLogout={handleLogout}
-        onOpenLogin={() => navigateToTab('login')}
+        onOpenLogin={() => {
+          setLoginInitialMode('login');
+          navigateToTab('login');
+        }}
+        onOpenJsonLogin={() => {
+          setLoginInitialMode('json');
+          navigateToTab('login');
+        }}
         onSwitchDemo={handleSwitchDemo}
         onOpenSheets={() => setIsSheetsModalOpen(true)}
       />
@@ -207,6 +243,7 @@ export default function App() {
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-8">
         {currentTab === 'login' && (
           <LoginPage
+            initialMode={loginInitialMode}
             onSuccess={handleAuthSuccess}
             onCancel={() => navigateToTab('home')}
           />

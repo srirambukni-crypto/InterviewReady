@@ -27,13 +27,21 @@
       "email": "david.chen@example.com",
       "targetRole": "Frontend Engineer",
       "createdAt": "2026-10-28T16:46:50.582Z"
+    },
+    "user-1793276938017": {
+      "id": "user-1793276938017",
+      "name": "Elena Rostova",
+      "email": "elena.rostova@example.com",
+      "targetRole": "Cloud Architect",
+      "createdAt": "2026-10-29T12:28:58.017Z"
     }
   },
   "passwords": {
     "student@interviewready.com": "password123",
     "priya@interviewready.com": "password123",
     "guest@interviewready.com": "guest",
-    "david.chen@example.com": "mypassword123"
+    "david.chen@example.com": "mypassword123",
+    "elena.rostova@example.com": "password123"
   },
   "sessions": {
     "e9ae2646-be66-46de-a50d-6d084b8f5f61": {
@@ -272,6 +280,16 @@
       "averageScore": 0,
       "streakDays": 1,
       "lastPracticedAt": "2026-10-28T16:46:50.582Z",
+      "moduleScores": {},
+      "recentActivity": []
+    },
+    "user-1793276938017": {
+      "userId": "user-1793276938017",
+      "completedModules": [],
+      "totalPracticedAnswers": 0,
+      "averageScore": 0,
+      "streakDays": 1,
+      "lastPracticedAt": "2026-10-29T12:28:58.017Z",
       "moduleScores": {},
       "recentActivity": []
     }

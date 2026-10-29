@@ -74,25 +74,51 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  if (loginBtn && emailInput && passwordInput) {
-    loginBtn.addEventListener('click', () => {
-      performLogin(emailInput.value, passwordInput.value);
+  // JSON Mode and handlers
+  const toggleJsonBtn = document.getElementById('btn-toggle-json-mode');
+  const standardFields = document.getElementById('standard-login-fields');
+  const jsonFields = document.getElementById('json-login-fields');
+  const jsonTextarea = document.getElementById('json-textarea');
+  const submitJsonBtn = document.getElementById('btn-submit-json');
+  const templateRegisterBtn = document.getElementById('btn-template-register');
+
+  if (toggleJsonBtn && standardFields && jsonFields) {
+    toggleJsonBtn.addEventListener('click', () => {
+      const isJsonVisible = jsonFields.style.display !== 'none';
+      jsonFields.style.display = isJsonVisible ? 'none' : 'block';
+      standardFields.style.display = isJsonVisible ? 'block' : 'none';
+      toggleJsonBtn.textContent = isJsonVisible ? 'Toggle JSON Mode' : 'Toggle Form Mode';
     });
   }
 
-  if (demoStudentBtn && emailInput && passwordInput) {
-    demoStudentBtn.addEventListener('click', () => {
-      emailInput.value = 'student@interviewready.com';
-      passwordInput.value = 'password123';
-      performLogin('student@interviewready.com', 'password123');
+  if (templateRegisterBtn && jsonTextarea) {
+    templateRegisterBtn.addEventListener('click', () => {
+      jsonTextarea.value = JSON.stringify({
+        name: 'Jordan Lee',
+        email: 'jordan.lee@example.com',
+        password: 'password123',
+        targetRole: 'Full Stack Engineer'
+      }, null, 2);
     });
   }
 
-  if (demoAnalystBtn && emailInput && passwordInput) {
-    demoAnalystBtn.addEventListener('click', () => {
-      emailInput.value = 'priya@interviewready.com';
-      passwordInput.value = 'password123';
-      performLogin('priya@interviewready.com', 'password123');
+  if (submitJsonBtn && jsonTextarea && loginStatus) {
+    submitJsonBtn.addEventListener('click', async () => {
+      try {
+        const parsed = JSON.parse(jsonTextarea.value);
+        loginStatus.innerHTML = '<span style="color:#2563eb">Submitting JSON credentials...</span>';
+        const res = await fetch('/api/auth/json', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(parsed)
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || 'JSON Login failed');
+        loginStatus.innerHTML = `<span style="color:#10b981; font-weight:600">✓ ${data.message || 'Authenticated successfully!'} (${data.user.name})</span>`;
+        localStorage.setItem('interviewready_vanilla_user', JSON.stringify(data.user));
+      } catch (err) {
+        loginStatus.innerHTML = `<span style="color:#ef4444">JSON Error: ${err.message}</span>`;
+      }
     });
   }
 });
