@@ -9,7 +9,7 @@ import { FluencyModule } from './components/FluencyModule.tsx';
 import { MockInterviewModule } from './components/MockInterviewModule.tsx';
 import { LoginPage } from './components/LoginPage.tsx';
 import { GoogleSheetsIntegrationModal } from './components/GoogleSheetsIntegrationModal.tsx';
-import { User, UserProgress } from './backend/models/types.ts';
+import type { User, UserProgress } from './backend/models/types.ts';
 import { GraduationCap, Sparkles, CheckCircle2 } from 'lucide-react';
 
 const DEFAULT_GUEST: User = {

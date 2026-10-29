@@ -12,7 +12,7 @@ import {
   Zap,
   Info
 } from 'lucide-react';
-import { SpeechMetrics } from '../backend/models/types.ts';
+import type { SpeechMetrics } from '../backend/models/types.ts';
 import { playSpeech } from '../utils/speechUtils.ts';
 
 interface FluencyModuleProps {

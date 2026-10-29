@@ -11,7 +11,7 @@ import {
   Award,
   Flame
 } from 'lucide-react';
-import { SentenceExercise, FeedbackResult } from '../backend/models/types.ts';
+import type { SentenceExercise, FeedbackResult } from '../backend/models/types.ts';
 import { FeedbackCard } from './FeedbackCard.tsx';
 import { playSpeech } from '../utils/speechUtils.ts';
 

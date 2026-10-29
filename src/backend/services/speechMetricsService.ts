@@ -1,4 +1,4 @@
-import { SpeechMetrics } from '../models/types.ts';
+import type { SpeechMetrics } from '../models/types.ts';
 
 const COMMON_FILLERS = [
   'um',

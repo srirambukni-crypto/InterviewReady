@@ -116,3 +116,5 @@ export interface UserProgress {
     timestamp: string;
   }>;
 }
+
+export default {};

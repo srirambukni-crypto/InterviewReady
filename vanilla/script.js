@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     introBtn.addEventListener('click', async () => {
       const text = introInput.value.trim();
       if (!text) {
-        alert('Please write an introduction first.');
+        feedbackResult.innerHTML = '<p style="color:#ef4444; font-size:0.85rem;">Please write an introduction first before requesting feedback.</p>';
         return;
       }
 

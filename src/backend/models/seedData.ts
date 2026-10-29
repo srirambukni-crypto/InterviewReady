@@ -1,4 +1,4 @@
-import { InterviewQuestion, VocabularyWord, SentenceExercise } from './types.ts';
+import type { InterviewQuestion, VocabularyWord, SentenceExercise } from './types.ts';
 
 export const SEED_QUESTIONS: InterviewQuestion[] = [
   // Introduction (4 questions)

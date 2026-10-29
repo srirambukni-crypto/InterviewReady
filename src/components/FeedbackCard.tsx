@@ -1,6 +1,6 @@
 import React from 'react';
 import { CheckCircle2, AlertCircle, Sparkles, Volume2, Award, Lightbulb, ArrowRight } from 'lucide-react';
-import { FeedbackResult } from '../backend/models/types.ts';
+import type { FeedbackResult } from '../backend/models/types.ts';
 import { playSpeech } from '../utils/speechUtils.ts';
 
 interface FeedbackCardProps {

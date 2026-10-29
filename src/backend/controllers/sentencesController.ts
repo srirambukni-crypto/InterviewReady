@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import type { Request, Response } from 'express';
 import { db } from '../models/db.ts';
 
 export function getSentences(req: Request, res: Response) {

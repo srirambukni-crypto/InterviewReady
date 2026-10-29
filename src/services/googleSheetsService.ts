@@ -1,4 +1,4 @@
-import { User, UserProgress } from '../backend/models/types.ts';
+import type { User, UserProgress } from '../backend/models/types.ts';
 
 export interface DatabaseDump {
   users: User[];

@@ -16,7 +16,7 @@ import {
   FileSpreadsheet
 } from 'lucide-react';
 import { NavTab } from './Navbar.tsx';
-import { UserProgress } from '../backend/models/types.ts';
+import type { UserProgress } from '../backend/models/types.ts';
 
 interface HomeViewProps {
   onNavigate: (tab: NavTab) => void;

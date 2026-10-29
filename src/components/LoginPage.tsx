@@ -22,7 +22,7 @@ import {
   Check,
   RefreshCw
 } from 'lucide-react';
-import { User, UserProgress } from '../backend/models/types.ts';
+import type { User, UserProgress } from '../backend/models/types.ts';
 
 interface LoginPageProps {
   onSuccess: (user: User, progress: UserProgress) => void;

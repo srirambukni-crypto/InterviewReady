@@ -1,5 +1,5 @@
 import { GoogleGenAI, Type } from '@google/genai';
-import { FeedbackResult } from '../models/types.ts';
+import type { FeedbackResult } from '../models/types.ts';
 
 const SYSTEM_PROMPT = `You are an elite English communication coach with 20 years of university and executive corporate teaching experience.
 Your singular objective is to coach candidates to master job interviews in English.

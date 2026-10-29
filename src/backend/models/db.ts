@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { v4 as uuidv4 } from 'uuid';
-import { User, MockSession, FeedbackResult, UserProgress, InterviewQuestion, VocabularyWord, SentenceExercise } from './types.ts';
+import type { User, MockSession, FeedbackResult, UserProgress, InterviewQuestion, VocabularyWord, SentenceExercise } from './types.ts';
 import { SEED_QUESTIONS, SEED_VOCABULARY, SEED_SENTENCES } from './seedData.ts';
 
 const DATA_DIR = path.resolve(process.cwd(), 'data');

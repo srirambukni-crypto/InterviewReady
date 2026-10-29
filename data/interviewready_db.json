@@ -125,6 +125,22 @@
           "Rehearse the STAR method framework for behavioral scenarios."
         ]
       }
+    },
+    "ecd08849-538a-41ef-89d8-eee126d1726a": {
+      "id": "ecd08849-538a-41ef-89d8-eee126d1726a",
+      "userId": "default-user",
+      "status": "in-progress",
+      "currentQuestionIndex": 0,
+      "totalQuestions": 4,
+      "questions": [
+        "Tell me about yourself, your background, and why you are interested in this position.",
+        "Can you describe your greatest professional strength and share an example where you demonstrated it?",
+        "Tell me about a time you faced a difficult conflict or challenge within a team and how you resolved it.",
+        "Where do you envision your career progressing over the next three to five years, and how does this role fit that goal?"
+      ],
+      "answers": [],
+      "createdAt": "2026-10-29T12:35:46.156Z",
+      "updatedAt": "2026-10-29T12:35:46.156Z"
     }
   },
   "answers": [

@@ -22,7 +22,7 @@ import {
   Code2
 } from 'lucide-react';
 import { stopSpeech } from '../utils/speechUtils.ts';
-import { User } from '../backend/models/types.ts';
+import type { User } from '../backend/models/types.ts';
 
 export type NavTab = 'home' | 'intro' | 'questions' | 'sentences' | 'vocab' | 'fluency' | 'mock' | 'login';
 

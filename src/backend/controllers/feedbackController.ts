@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import type { Request, Response } from 'express';
 import { generateEnglishFeedback } from '../services/geminiService.ts';
 import { db } from '../models/db.ts';
 

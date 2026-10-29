@@ -12,7 +12,7 @@ import {
   RotateCcw,
   Volume2
 } from 'lucide-react';
-import { InterviewQuestion, FeedbackResult } from '../backend/models/types.ts';
+import type { InterviewQuestion, FeedbackResult } from '../backend/models/types.ts';
 import { FeedbackCard } from './FeedbackCard.tsx';
 import { playSpeech } from '../utils/speechUtils.ts';
 

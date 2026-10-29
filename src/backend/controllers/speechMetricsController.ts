@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import type { Request, Response } from 'express';
 import { analyzeSpeechMetrics } from '../services/speechMetricsService.ts';
 
 export function handleSpeechMetrics(req: Request, res: Response) {

@@ -12,7 +12,7 @@ import {
   Copy, 
   Check
 } from 'lucide-react';
-import { FeedbackResult } from '../backend/models/types.ts';
+import type { FeedbackResult } from '../backend/models/types.ts';
 import { FeedbackCard } from './FeedbackCard.tsx';
 import { playSpeech } from '../utils/speechUtils.ts';
 

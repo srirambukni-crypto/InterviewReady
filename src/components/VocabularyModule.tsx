@@ -11,7 +11,7 @@ import {
   Award,
   HelpCircle
 } from 'lucide-react';
-import { VocabularyWord } from '../backend/models/types.ts';
+import type { VocabularyWord } from '../backend/models/types.ts';
 import { playSpeech } from '../utils/speechUtils.ts';
 
 interface VocabularyModuleProps {
